@@ -1,0 +1,12 @@
+{
+  "level": "error",
+  "message": "Ato Failure",
+  "responseError.response.data": "Access denied to resource /sap/bc/adt/ato/settings on system s4hanam19-100.com:8000. In case this was a valid request, ensure to expose the resource correctly in your cloud connector.",
+  "time": "2022-03-04 15:08:59.386Z"
+}
+{
+  "level": "error",
+  "message": "Deploy Failure Encountered",
+  "responseError.response.data": "Invalid backend response received by SCC: io.netty.handler.codec.TooLongFrameException: HTTP header is larger than 8192 bytes..",
+  "time": "2022-03-04 15:09:20.487Z"
+}

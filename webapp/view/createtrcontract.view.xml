@@ -1,0 +1,88 @@
+<mvc:View
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:m="sap.m" controllerName="acm.trcon.excel.zacmexcelupload1.controller.createtrcontract"
+	xmlns:u="sap.ui.unified"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+
+	<m:NavContainer id="wizNavContainer">
+		<m:pages>
+			<m:Page id="createtrcontract">
+				<f:SimpleForm title="{i18n>KEYWORD1}" id="idForm" editable="true" layout="ResponsiveGridLayout"
+					labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="50" emptySpanXL="2" emptySpanL="2" emptySpanM="2" emptySpanS="0" columnsXL="1"
+					columnsL="1" columnsM="1">
+					<f:content>
+						<u:FileUploader
+			id="idFileUploader"
+			name="myFileUpload"
+			tooltip="{i18n>TOOLTIP}"
+			uploadComplete="handleUploadComplete"
+			change="handleValueChange"
+			typeMissmatch="handleTypeMissmatch"
+			style="Emphasized"
+            width="500px"
+			fileType="xls,xlsx"
+			placeholder="{i18n>PLACEHOLDER}"></u:FileUploader>
+						<m:Toolbar id="idToolbar">
+							<m:Button id="idUpload" text="{i18n>UPLOAD}" press="onPressUpload" type="Emphasized" icon="sap-icon://upload" 
+            width="150px"></m:Button>
+						</m:Toolbar>
+						<m:RadioButtonGroup id="GroupA">
+							<m:RadioButton id="idRd1" text="{i18n>BARTER_CON}" selected="true" />
+							<m:RadioButton id="idRd2" text="{i18n>FORWARD_CON}" />
+						</m:RadioButtonGroup>
+					</f:content>
+				</f:SimpleForm>
+
+                <m:Table id="idLogTable"  
+                		items="{TableModel>/LogTable}">
+                <m:headerToolbar>
+			    <m:OverflowToolbar id="idOverflowToolbar">
+				<m:Title text="Error Log" level="H2" id="idTitle"/>
+				<m:ToolbarSpacer id="idToolbarSpacer"></m:ToolbarSpacer>
+				<m:Button id="idButton" text="{i18n>DOWNLOADLOG}"	icon="sap-icon://download" press="onLogDownload" />
+			    </m:OverflowToolbar>
+		        </m:headerToolbar>        
+					<m:columns>
+						<m:Column id="idTypeCol" width="5px">
+							<m:Label id="idMsgTypeCol" text="{i18n>MESSAGE_TYPE}"/>
+						 </m:Column>
+						<m:Column id="idMessageCol" width="30px">
+							<m:Label id="idMsgCol" text="{i18n>MESSAGE}" />
+						</m:Column>
+                        <m:Column id="idConTypeCol" width="20px">
+							<m:Label id="idConTypeColName" text="{i18n>CONTRACT_TYPE}" />
+						</m:Column>
+                        <m:Column id="idExtRefCol" width="10px">
+							<m:Label id="idExtRefColName" text="{i18n>EXT_REFERENCE}" />
+						</m:Column>    
+					</m:columns>
+                    <m:items>
+                    <m:ColumnListItem id="idlist" vAlign="Middle">
+                    <m:cells>
+                        <m:Text id="idType" text="{TableModel>type}" />
+                        <m:Text id="idmessage" text="{TableModel>message}"/>
+                        <m:Text id="idConType" text="{TableModel>TradingContractType}" />   
+                        <m:Text id="idExtRef" text="{TableModel>ExternalReference}" />
+                    </m:cells>
+                    </m:ColumnListItem>
+                    </m:items>
+				</m:Table>
+
+				<m:footer>
+					<m:Bar id="idBar">
+						<m:contentLeft>
+							<m:Button id="idMessagePopoverBtn" icon="sap-icon://message-popup" text="{viewModel>/messagesLength}" type="Emphasized"
+								press="onMessagePopoverPress" visible="false"/>
+						</m:contentLeft>
+						<m:contentRight>
+						<!-- <m:Button text="Cancel" id="idCancel" press="onCancel" type="Reject" visible="false"></m:Button> -->
+						</m:contentRight>
+					</m:Bar>
+				</m:footer>
+			</m:Page>
+		</m:pages>
+	</m:NavContainer>
+</mvc:View>
