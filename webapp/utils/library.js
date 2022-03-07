@@ -15,7 +15,7 @@
         //module name
         "acm/trcon/excel/zacmexcelupload1/utils",
         // node module path
-        ["acm/trcon/excel/zacmexcelupload1/ns.mylibrary/xlsx/xlsx"],
+        ["acm/trcon/excel/zacmexcelupload1/ns.mylibrary.xlsx/xlsx"],
         // callback
         function () {
             return window.xlsx;
